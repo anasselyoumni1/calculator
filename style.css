@@ -1,0 +1,38 @@
+/* * { 
+    padding: 0;
+    margin: 0;
+}
+
+body { 
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: auto auto auto auto ;
+    grid-template-rows: auto auto;
+
+}
+
+div{
+    border: 0.1vw solid black;
+}
+
+button{
+    height: 100%;
+    width: 100%;   
+    font-size: 20px;
+    border: none;
+}
+
+.input{
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+input{ 
+    height: 100%;
+    width: 100%;
+    font-size: 50px;
+    text-align: right; 
+
+
+} */
