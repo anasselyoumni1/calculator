@@ -1,3 +1,58 @@
+let firstNumber = document.querySelector(".inputField"); 
+let secondNumber = document.querySelector(".inputField");
+const equalsButton = document.querySelector(".enter");
+
+//buttons
+const addButton = document.querySelector(".add");
+const minButton = document.querySelector(".subtract");
+const divideButton = document.querySelector(".divide");
+const multiplyButton = document.querySelector(".multiply");
+const clearButton = document.querySelector(".clear");
+
+let totalNumbers = [];
+console.log(totalNumbers);
+
+//button functions
+addButton.addEventListener("click", () => {
+    number();
+    cleared();
+    totalNumbers.push(addButton.dataset.operator);
+});
+
+minButton.addEventListener("click", () => {
+    number();
+    cleared();
+    totalNumbers.push(minButton.dataset.operator);
+});
+
+divideButton.addEventListener("click", () => {
+    number();
+    cleared();
+    totalNumbers.push(divideButton.dataset.operator);
+});
+
+multiplyButton.addEventListener("click", () => {
+    number();
+    cleared();
+    totalNumbers.push(multiplyButton.dataset.operator);
+});
+
+clearButton.addEventListener("click", () => {
+    totalNumbers.length = 0;
+});
+
+
+function number (){
+    // const getal = totalNumbers.push(number);
+    if(firstNumber.value == ""){
+        return console.log("Je hebt nog niks ingevuld");
+    }else{
+    return totalNumbers.push(firstNumber.value);
+    }
+}
+
+
+//operator functions
 function add (x, y) { 
  return x + y   
 }
@@ -14,15 +69,10 @@ function divide (x, y ) {
     return x / y
 }
 
+
+//De operator zelf
 function operate (numberOne, numberTwo, operator) {
-    let counter = 0;
-    let num1 = prompt("Eerste getal");
-    operator = prompt("vul je operator in");
-    let num2 = prompt("Tweede getal");
-
-    numberOne = parseInt(num1);
-    numberTwo = parseInt(num2);
-
+    // console.log(totalNumbers);
     if (operator == "/"){ 
         console.log( divide(numberOne, numberTwo));
     } else if (operator == "+"){ 
@@ -32,20 +82,17 @@ function operate (numberOne, numberTwo, operator) {
     } else if (operator == "*" ) { 
         console.log( multiply(numberOne, numberTwo));
     } else {
-        console.log("We hebben de divider niet kunnen vinden");
+        console.log("We hebben de operator niet kunnen vinden");
     }
 };
 
-operate();
+function cleared() {
+    firstNumber.value = 0;
+}
+
+equalsButton.addEventListener('click', () => {
+    totalNumbers.push(secondNumber.value);
+    operate(parseInt(totalNumbers[0]), parseInt(totalNumbers[2]), totalNumbers[1]);
+});
 
 
-
-// for (let i = 0; i < 10; i++) {
-//     const button = document.createElement('button'); 
-    
-//     const div = document.createElement("div");
-//     document.body.appendChild(div);
-//     div.appendChild(button);
-//     button.setAttribute("id", [i])
-//     button.innerHTML = [i];
-// }
